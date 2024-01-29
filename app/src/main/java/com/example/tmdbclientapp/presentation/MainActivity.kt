@@ -1,4 +1,4 @@
-package com.example.tmdbclientapp
+package com.example.tmdbclientapp.presentation
 
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
