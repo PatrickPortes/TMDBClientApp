@@ -4,7 +4,6 @@ import androidx.lifecycle.ViewModel
 import androidx.lifecycle.ViewModelProvider
 import com.example.tmdbclientapp.domain.usecase.GetArtistsUseCase
 import com.example.tmdbclientapp.domain.usecase.UpdateArtistsUseCase
-import com.example.tmdbclientapp.presentation.movie.MovieViewModel
 
 class ArtistViewModelFactory(
     private val getArtistsUseCase: GetArtistsUseCase,

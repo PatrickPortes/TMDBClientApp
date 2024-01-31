@@ -1,20 +1,20 @@
-package com.example.tmdbclientapp.presentation.movie
+package com.example.tmdbclientapp.presentation.artist
 
 import android.view.LayoutInflater
 import android.view.ViewGroup
 import androidx.databinding.DataBindingUtil
 import androidx.recyclerview.widget.RecyclerView
 import com.bumptech.glide.Glide
-import com.example.tmdbclientapp.data.model.movie.Movie
+import com.example.tmdbclientapp.data.model.artist.Artist
 import com.example.tmdbclientapp.databinding.ListItemBinding
 
-class MovieAdapter : RecyclerView.Adapter<MyViewHolder>(){
+class ArtistAdapter : RecyclerView.Adapter<MyViewHolder>(){
 
-    private val movieList = ArrayList<Movie>()
+    private val artistList = ArrayList<Artist>()
 
-    fun setList(movies: List<Movie>){
-        movieList.clear()
-        movieList.addAll(movies)
+    fun setList(artist: List<Artist>){
+        artistList.clear()
+        artistList.addAll(artist)
     }
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): MyViewHolder {
@@ -29,20 +29,20 @@ class MovieAdapter : RecyclerView.Adapter<MyViewHolder>(){
     }
 
     override fun getItemCount(): Int {
-        return movieList.size
+        return artistList.size
     }
 
     override fun onBindViewHolder(holder: MyViewHolder, position: Int) {
-        holder.bind(movieList[position])
+        holder.bind(artistList[position])
     }
 }
 
 class MyViewHolder(val binding: ListItemBinding) : RecyclerView.ViewHolder(binding.root) {
 
-    fun bind(movie:Movie){
-        binding.titleTextView.text = movie.title
-        binding.descriptionTextView.text = movie.overview
-        val posterURL = "https://image.tmdb.org/t/p/w500"+movie.posterPath
+    fun bind(artist: Artist){
+        binding.titleTextView.text = artist.name
+        binding.descriptionTextView.text = artist.popularity.toString()
+        val posterURL = "https://image.tmdb.org/t/p/w500"+artist.profilePath
         Glide.with(binding.imageView.context)
             .load(posterURL)
             .into(binding.imageView)
